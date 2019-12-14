@@ -15,7 +15,7 @@ body{
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    max-height: 100px;
+    height: auto;
     z-index: 5;
 }
 
@@ -47,7 +47,7 @@ body{
     width: 100%;
     height: 40px;
     padding: 0 0 0 200px;
-    transition: .35s transform ease-in-out;
+    transition: .5s transform ease;
 }
 
 .topHeadCont.inactive{        
@@ -56,7 +56,10 @@ body{
 
 .topHeadCont.inactive ~ .botHeadCont{    
     height: 40px;
-    transform: translateY(-40px);;
+    top: 40px;
+    transform: translateY(-40px);
+    position: absolute;
+    background-color: rgba(44, 48, 64, .8);
 }
 
 .topHeadNavLink, .botHeadNavLink{
@@ -69,7 +72,7 @@ body{
     height: 100%;
 }
 
-.botHeadNavLink span, .topHeadNavLink span{
+.botHeadNavLink .botHeadNavCont, .topHeadNavLink span{
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -78,7 +81,7 @@ body{
     height: 100%;
 }
 
-.topHeadNavLink span a, .botHeadNavLink span a{
+.topHeadNavLink span a, .botHeadNavLink .botHeadNavCont .botHeadNavInnerLink{
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -92,8 +95,192 @@ body{
     transition: .15s border ease-in-out;
 }
 
-.botHeadNavLink span a{    
+.botHeadNavInnerLink{    
     border-bottom: 2px solid transparent;
+}
+
+.subNav1Cont{
+    display: flex;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: row;
+    width: 1000px;
+    background-color: rgba(44, 48, 64, .9);
+    color: #fff;
+    opacity: 0;
+    transition: .5s opacity ease;
+}
+
+.subNavStates{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.snStateCont{
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column;
+    padding: 15px;
+}
+
+.snStateCont.active{
+    color: #f8a12d;
+    background-color: rgba(82, 87, 107, .4);
+}
+
+.snStateCont > div{
+    margin: 10px;
+}
+
+.stateName{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.stateName a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.stateLine{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    height: 2px;
+    width: 60px;
+    background-color: #f8a12d;
+}
+
+.subNavStates{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.subNavStates > span{
+    margin: 20px 0;
+}
+
+.subNavCities{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+    padding: 10px 0 0 0;
+    background-color: rgba(82, 87, 107, .4); 
+}
+
+.subNavCityState1{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column;
+}
+
+.cityStateName{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.cityStateName a{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    color: #FFF;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+.cityStateName a:hover{   
+    background: rgba(82, 87, 107, .4);    
+    color: #f8a12d;
+    transition: .2s ease;
+}
+
+.subNavDestination{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+}
+
+.snDestTitleCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.snDestLine{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 50px;
+    height: 2px;
+    background-color: #f8a12d;
+    margin-top: 8px;
+}
+
+.snDestGalleryCont{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.snDestinationCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 44%;
+    margin-bottom: 10px;
+}
+
+.snDestinationCont:nth-child(odd){
+    margin-right: 20px;
+}
+
+.snDestImgCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.snDestImgCont img{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.snDestNameCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 16px;
+    font: normal 14px "Arial";
 }
 
 .botHeadCont{
@@ -107,7 +294,7 @@ body{
     width: 100%;
     height: 60px;
     padding: 0 0 0 200px;    
-    transition: .35s transform ease-in-out;
+    transition: .5s transform ease;
 }
 
 .heroRowCont{
@@ -134,14 +321,19 @@ body{
     background-color: #fff;
 }
 
+.firstRowCont span{
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .firstRowCont.fixed{
     position: fixed;
     top: 40px;    
     z-index: 2;
-}
-
-.firstRowCont.fixed .firstRowContent{
-    left: -46px;
 }
 
 .firstRowContent{
@@ -155,11 +347,17 @@ body{
     transition: .35s left ease-in-out;
 }
 
+.firstRowCont.fixed .firstRowContent{
+    left: -46px;
+}
+
 .firstRowContent span a{
-    padding: 40px;
+    display: block;
+    padding: 0 40px;
     color: #323232;
     text-decoration: none;
     transition: .2s ease;
+    z-index: 10;
 }
 
 .firstRowContent span a:hover{
