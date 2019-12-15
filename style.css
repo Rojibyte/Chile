@@ -15,7 +15,7 @@ body{
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    max-height: 100px;
+    height: auto;
     z-index: 5;
 }
 
@@ -47,7 +47,7 @@ body{
     width: 100%;
     height: 40px;
     padding: 0 0 0 200px;
-    transition: .35s transform ease-in-out;
+    transition: .5s transform ease;
 }
 
 .topHeadCont.inactive{        
@@ -56,7 +56,10 @@ body{
 
 .topHeadCont.inactive ~ .botHeadCont{    
     height: 40px;
-    transform: translateY(-40px);;
+    top: 40px;
+    transform: translateY(-40px);
+    position: absolute;
+    background-color: rgba(44, 48, 64, .8);
 }
 
 .topHeadNavLink, .botHeadNavLink{
@@ -69,7 +72,7 @@ body{
     height: 100%;
 }
 
-.botHeadNavLink span, .topHeadNavLink span{
+.botHeadNavLink .botHeadNavCont, .topHeadNavLink span{
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -78,7 +81,7 @@ body{
     height: 100%;
 }
 
-.topHeadNavLink span a, .botHeadNavLink span a{
+.topHeadNavLink span a, .botHeadNavLink .botHeadNavCont .botHeadNavInnerLink{
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -92,8 +95,199 @@ body{
     transition: .15s border ease-in-out;
 }
 
-.botHeadNavLink span a{    
+.botHeadNavInnerLink{    
     border-bottom: 2px solid transparent;
+}
+
+.subNav1Cont{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: row;
+    width: 1000px;
+    background-color: rgba(44, 48, 64, .9);
+    color: #fff;
+    opacity: 0;
+    animation: fadeIn .2s .1s ease backwards;
+    transition: .5s opacity ease;
+}
+
+.subNav1Cont.active{
+    opacity: 1;
+    display: flex;
+}
+
+.subNavStates{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.snStateCont{
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column;
+    padding: 15px;
+    transition: .2s ease;
+}
+
+.snStateCont.active{
+    color: #f8a12d;
+    background-color: rgba(82, 87, 107, .4);
+}
+
+.snStateCont > div{
+    margin: 10px;
+}
+
+.stateName{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.stateName a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.stateLine{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    height: 2px;
+    width: 60px;
+    background-color: #f8a12d;
+}
+
+.subNavStates{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.subNavStates > span{
+    margin: 20px 0;
+}
+
+.subNavCities{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+    padding: 10px 0 0 0;
+    background-color: rgba(82, 87, 107, .4); 
+}
+
+.subNavCityState1{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column;
+}
+
+.cityStateName{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.cityStateName a{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    color: #FFF;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+.cityStateName a:hover{   
+    background: rgba(82, 87, 107, .4);    
+    color: #f8a12d;
+    transition: .2s ease;
+}
+
+.subNavDestination{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+}
+
+.snDestTitleCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.snDestLine{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 50px;
+    height: 2px;
+    background-color: #f8a12d;
+    margin-top: 8px;
+}
+
+.snDestGalleryCont{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.snDestinationCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 44%;
+    margin-bottom: 10px;
+}
+
+.snDestinationCont:nth-child(odd){
+    margin-right: 20px;
+}
+
+.snDestImgCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.snDestImgCont img{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.snDestNameCont{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 16px;
+    font: normal 14px "Arial";
 }
 
 .botHeadCont{
@@ -107,7 +301,7 @@ body{
     width: 100%;
     height: 60px;
     padding: 0 0 0 200px;    
-    transition: .35s transform ease-in-out;
+    transition: .5s transform ease;
 }
 
 .heroRowCont{
@@ -134,14 +328,19 @@ body{
     background-color: #fff;
 }
 
+.firstRowCont span{
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .firstRowCont.fixed{
     position: fixed;
     top: 40px;    
     z-index: 2;
-}
-
-.firstRowCont.fixed .firstRowContent{
-    left: -46px;
 }
 
 .firstRowContent{
@@ -152,17 +351,37 @@ body{
     align-items: center;
     flex-flow: row;   
     left: 0px; 
+    height: 100%;
     transition: .35s left ease-in-out;
 }
 
-.firstRowContent span a{
-    padding: 40px;
+.firstRowCont.fixed .firstRowContent{
+    left: -46px;
+}
+
+.firstRowContent span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 40px;
     color: #323232;
     text-decoration: none;
     transition: .2s ease;
+    z-index: 10;    
+    height: 100%;
+    border-bottom: 2px solid transparent;    
+    transition: .15s border ease-in-out;
+    cursor: pointer;
 }
 
-.firstRowContent span a:hover{
+.firstRowContent span.active{
+    border-bottom-color: #f8a12d;
+    color: #428aa5;
+}
+
+.firstRowContent span:hover{
     color: #428aa5;
 }
 
@@ -217,4 +436,255 @@ body{
     text-align: center;
     margin: 30px 0;
     line-height: 25px;
+}
+
+.thirdRowCont, .fourthRowCont, .fifthRowCont, .sixthRowCont, .seventhRowCont, .eightRowCont{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+}
+
+.thirdRowCont{
+    background: center / cover no-repeat url("https://images.pexels.com/photos/1327373/pexels-photo-1327373.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); 
+}
+
+.fourthRowCont{
+    background: center / cover no-repeat url("https://images.pexels.com/photos/1295138/pexels-photo-1295138.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.fifthRowCont{
+    background: center / cover no-repeat url("https://images.pexels.com/photos/2505309/pexels-photo-2505309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.sixthRowCont{
+    background: center / cover no-repeat url("https://images.pexels.com/photos/258109/pexels-photo-258109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.seventhRowCont{
+    background: center / cover no-repeat url("https://images.pexels.com/photos/1822664/pexels-photo-1822664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.thirdRowColL, .fourthRowColR, .fifthRowColL, .sixthRowColR, .seventhRowColL{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.thirdRowColR, .fourthRowColL, .fifthRowColR, .sixthRowColL, .seventhRowColR{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;    
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.trColLContent, .trColRContent, .frColLContent, .frColRContent, .ffColLContent, .ffColRContent, .sxColLContent, .sxColRContent, .svColLContent, .svColRContent{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.trColRContent div, .frColLContent div, .ffColRContent div, .sxColLContent div, .svColRContent div{
+    margin: 10px 0;
+}
+
+.trColRTitle, .frColLTitle, .ffColRTitle, .sxColLTitle, .svColRTitle{
+    color: #428aa5;
+    font: bold 46px "Arial";
+}
+
+.trColRSubTitle, .frColLSubTitle, .ffColRSubTitle, .sxColLSubTitle, .svColRSubTitle{
+    font: bold 26px "Arial";
+    color: #323232;
+}
+
+.trColRBtn, .frColLBtn, .ffColRBtn, .sxColLBtn, .svColRBtn{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+    background-color: #f8a12d;
+    border-radius: 50px;
+    transition: .2s ease;
+}
+
+.trColRBtn:hover, .frColLBtn:hover, .ffColRBtn:hover, .sxColLBtn:hover, .svColRBtn:hover{
+    background-color: #f9aa42;
+}
+
+.trColRBtn a, .frColLBtn a, .ffColRBtn a, .sxColLBtn a, .svColRBtn a{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #FFF;
+    border-radius: 50px;
+}
+
+.footerRowCont{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 580px;
+    background-color: #2c3040;
+}
+
+.footerRowContColL, .footerRowContColR{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;    
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.footColRContent{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.footerRowContColL{
+    width: 40%;
+    margin-right: 30px;
+}
+
+.footerRowContColR{
+    width: 60%;
+}
+
+.footColLImg{
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    padding: 14px 0px;
+    background-color: #1092AF;
+    cursor: pointer;
+    left: 90px;
+}
+
+.footColLImg img{
+    width: 65%;
+}
+
+.footColLNavs{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.footColRNavs{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 33.2%;
+}
+
+.footColLNavs div, .footColRNavs div, .footColContact div{
+    margin-bottom: 15px;
+}
+
+.fcNavTitle, .fcSocialTitle, .fcContactTitle{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    font: bold 18px "Arial";
+    color: #FFF;
+    margin-bottom: 25px !important;
+}
+
+.fcNav{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    font: normal 16px "Arial";
+    color: #FFF;
+    opacity: .4;
+    transition: .15s ease;
+}
+
+.fcNav:hover{
+    opacity: 1;
+}
+
+.footColRSocial{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    width: 33%;
+}
+
+.fcSocialsCont{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: row wrap;
+}
+
+.fcFB, .fcTW, .fcIG{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 15%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.footColContact{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-flow: column;
+    width: 33%;
+}
+
+.fcContactTitle, .fcEmailAdd, .fcAdd, .fcNum{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    font: normal 16px "Arial";
+    color: #FFF;
+}
+
+@keyframes fadeIn{
+    0%{ opacity: 0;}
+    100%{opacity: 1;}
 }
